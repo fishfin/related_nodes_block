@@ -1,0 +1,32 @@
+<?php
+
+module_load_include('inc', 'related_nodes_block', 'related_nodes_block.module');
+
+use Drupal\related_nodes_block\Module;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_help().
+ */
+function related_nodes_block_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.related_nodes_block':
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The <a href=":ph2" target="_blank">@ph1</a> module provides nodes blocks that are related to the node that they are displayed on, related by Content Type.', ['@ph1' => Module\LABEL, ':ph2' => Module\MODULE_WEBPAGE]) . '</p>';
+      $output .= '<dl>';
+      $output .= '<h3>' . t('How to use') . '</h3>';
+      $output .= '<dd>' . t('Follow these steps:') . '</dd>';
+      $output .= '<dt>' . t('1. Add Block') . '</dt>';
+      $output .= '<dd>' . t('Go to <a href=":blocks" target="_blank">Block Layout</a> page. Click "Place block" against the region you want to place the block in. On the "Place block" panel, search for "Related Content Block" (without quotes), and click "Place block" button against it.', [':blocks' => Url::fromRoute('block.admin_display')->toString()]) . '</dd>';
+      $output .= '<dt>' . t('2. Configure Block') . '</dt>';
+      $output .= '<dd>';
+      $output .= '&bullet; ' . t('Select "Filter" options.');
+      $output .= '<br>&bullet; ' . t('Select "Display" options.');
+      $output .= '<br>&bullet; ' . t('Select "Visibility" options.');
+      $output .= '<br>&bullet; ' . t('Click "Save block" and you are done.');
+      $output .= '</dd>';
+      $output .= '</dl>';
+      return $output;
+  }
+}

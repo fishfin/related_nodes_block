@@ -1,0 +1,7 @@
+# Controller to choose the display mode for content types selected
+related_nodes_block.autocomplete_node:
+  path: '/related_nodes_block/autocomplete_node'
+  defaults:
+    _controller: '\Drupal\related_nodes_block\Controller\AutocompleteController::autocompleteNode'
+  requirements:
+    _access: 'TRUE'

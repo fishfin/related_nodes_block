@@ -1,0 +1,14 @@
+name: 'Related Nodes Block'
+type: module
+description: 'Provides nodes blocks that are related to the node that they are displayed with, related by Content Type.'
+package: Blocks
+version: '8.x-1.0-dev'
+
+core: '8.x'
+core_version_requirement: ^8 || ^9
+
+dependencies:
+  - drupal:block
+  - drupal:node
+  - drupal:statistics
+  - token:token
